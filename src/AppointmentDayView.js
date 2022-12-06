@@ -1,5 +1,11 @@
 import React from "react";
 
-export const AppointmentDayView = () => (
-  <div id="appointmentsDayView">Hola</div>
+export const AppointmentDayView = ({ appointments }) => (
+  <div id="appointmentsDayView">
+    <ol>
+      {appointments.map((appointment) => (
+        <li key={appointment.startAt} />
+      ))}
+    </ol>
+  </div>
 );
