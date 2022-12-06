@@ -17,6 +17,14 @@
   },
   "homepage": "https://github.com/michaeladrianhernandezrala/learning-react-tdd#readme",
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/runtime": "^7.20.6",
     "jest": "^29.3.1"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
