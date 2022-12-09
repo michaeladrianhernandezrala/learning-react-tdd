@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const appointmentTimeOfDay = (startAt) => {
-  const [h, m] = new Date(startAt).toTimeString().split(":");
+const appointmentTimeOfDay = (startsAt) => {
+  const [h, m] = new Date(startsAt).toTimeString().split(":");
   return `${h}:${m}`;
 };
 
@@ -43,22 +43,26 @@ export const Appointment = ({
   </div>
 );
 
-export const AppointmentDayView = ({ appointments }) => {
+export const AppointmentsDayView = ({ appointments }) => {
   const [selectedAppointment, setSelectedAppointment] = useState(0);
+
   return (
     <div id="appointmentsDayView">
       <ol>
         {appointments.map((appointment, i) => (
-          <li key={appointment.startAt}>
-            <button type="button" onClick={() => setSelectedAppointment(i)}>
+          <li key={appointment.startsAt}>
+            <button
+              className={i === selectedAppointment ? "toggled" : ""}
+              type="button"
+              onClick={() => setSelectedAppointment(i)}
+            >
               {appointmentTimeOfDay(appointment.startsAt)}
             </button>
           </li>
         ))}
       </ol>
-
       {appointments.length === 0 ? (
-        "There are no appointments scheduled for today"
+        <p>There are no appointments scheduled for today.</p>
       ) : (
         <Appointment {...appointments[selectedAppointment]} />
       )}
