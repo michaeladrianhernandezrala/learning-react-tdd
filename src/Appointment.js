@@ -1,5 +1,5 @@
-import React from 'react'
+import React from "react";
 
-const Appointment = () => 'Ashley'
+const Appointment = ({ customer }) => <div>{customer.firstName}</div>;
 
-export default Appointment
+export default Appointment;
