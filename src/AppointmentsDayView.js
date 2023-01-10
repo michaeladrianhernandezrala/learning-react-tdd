@@ -29,31 +29,40 @@ export const AppointmentsDayView = ({ appointments }) => {
   );
 };
 
-export const Appointment = ({ customer, stylist, service, notes }) => (
+export const Appointment = ({
+  startsAt,
+  customer,
+  stylist,
+  service,
+  notes,
+}) => (
   <div>
+    <h3>Today's appointment at {appointmentTimeOfDay(startsAt)}</h3>
     <table>
-      <tr>
-        <th>Customer:</th>
-        <td>
-          {customer.firstName} {customer.lastName}
-        </td>
-      </tr>
-      <tr>
-        <th>Phone number:</th>
-        <td>{customer.phoneNumber}</td>
-      </tr>
-      <tr>
-        <th>Stylist:</th>
-        <td>{stylist}</td>
-      </tr>
-      <tr>
-        <th>Service:</th>
-        <td>{service}</td>
-      </tr>
-      <tr>
-        <th>Notes:</th>
-        <td>{notes}</td>
-      </tr>
+      <tbody>
+        <tr>
+          <th>Customer:</th>
+          <td>
+            {customer.firstName} {customer.lastName}
+          </td>
+        </tr>
+        <tr>
+          <th>Phone number:</th>
+          <td>{customer.phoneNumber}</td>
+        </tr>
+        <tr>
+          <th>Stylist:</th>
+          <td>{stylist}</td>
+        </tr>
+        <tr>
+          <th>Service:</th>
+          <td>{service}</td>
+        </tr>
+        <tr>
+          <th>Notes:</th>
+          <td>{notes}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 );
