@@ -86,4 +86,12 @@ describe("AppointmentsDayView", () => {
     expect(buttons).toHaveLength(2)
     expect(buttons[0].type).toEqual('button')
   })
+
+  it("renders another appointment when selected", () => {
+    render(<AppointmentsDayView appointments={twoAppointments} />)
+
+    const button = document.querySelectorAll("li > button")[1]
+    act(() => button.click())
+    expect(document.body.textContent).toContain('Jordan')
+  })
 });
