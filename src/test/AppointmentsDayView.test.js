@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { act } from "react-dom/test-utils";
 import { Appointment, AppointmentsDayView } from "../AppointmentsDayView";
-import { initializateContainer, render } from "./reactTestExtensions";
+import { click, initializateContainer, render } from "./reactTestExtensions";
 
 describe("Appointment", () => {
   beforeEach(() => {
@@ -88,7 +88,7 @@ describe("AppointmentsDayView", () => {
     render(<AppointmentsDayView appointments={twoAppointments} />);
 
     const button = document.querySelectorAll("li > button")[1];
-    act(() => button.click());
+    click(button);
     expect(document.body.textContent).toContain("Jordan");
   });
 });
