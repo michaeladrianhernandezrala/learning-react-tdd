@@ -1,7 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import { Appointment, AppointmentsDayView } from "../AppointmentsDayView";
+import { toContainText } from "./matchers/toContainText";
 import { click, initializateContainer, render } from "./reactTestExtensions";
+
 
 describe("Appointment", () => {
   beforeEach(() => {
@@ -87,3 +88,28 @@ describe("AppointmentsDayView", () => {
     expect(document.body.textContent).toContain("Jordan");
   });
 });
+
+describe('toContainerText matcher', () => {
+  it('returns pass is true when text is found in the given DOM element', () => {
+    const domElement = {
+      textContent: 'text to find'
+    }
+
+    const result = toContainText(domElement, 'text to find')
+    expect(result.pass).toBe(true)
+  })
+
+
+  // it("returns pass is true when text is found in the given DOM element", () => {
+  //   const domElement = {
+  //     textContent: "text to find",
+  //   };
+
+  //   const result = toContainText(domElement, "text to find");
+
+  //   expect(stripTerminalColor(result.message())).toContain(
+  //     `expect(element).toContainText("text to find")`
+  //   );
+  // });
+  
+})
