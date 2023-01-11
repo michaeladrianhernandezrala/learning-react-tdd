@@ -2,16 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { act } from "react-dom/test-utils";
 import { Appointment, AppointmentsDayView } from "../AppointmentsDayView";
-import { initializateContainer, container } from "./reactTestExtensions";
+import { initializateContainer, render } from "./reactTestExtensions";
 
 describe("Appointment", () => {
-
   beforeEach(() => {
     initializateContainer();
   });
-
-  const render = (component) =>
-    act(() => ReactDOM.createRoot(container).render(component));
 
   it("renders the customer first name", () => {
     const customer = { firstName: "Ashley" };
