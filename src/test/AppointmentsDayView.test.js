@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { act } from "react-dom/test-utils";
 import { Appointment, AppointmentsDayView } from "../AppointmentsDayView";
 import { click, initializateContainer, render } from "./reactTestExtensions";
 
@@ -33,12 +32,8 @@ describe("AppointmentsDayView", () => {
   ];
 
   beforeEach(() => {
-    container = document.createElement("div");
-    document.body.replaceChildren(container);
+    initializateContainer();
   });
-
-  const render = (component) =>
-    act(() => ReactDOM.createRoot(container).render(component));
 
   it("renders a div with the right id ", () => {
     render(<AppointmentsDayView appointments={[]} />);
